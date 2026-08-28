@@ -1,6 +1,6 @@
 /**
  * Artavix Enterprise Core Application Engine
- * Handles JSON Data Ingestion, Dynamic Portfolio Rendering, and Interactive Modals.
+ * Handles JSON Data Ingestion, Dynamic Portfolio Rendering, and Interactive Modals/Showcase Navigation.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -82,6 +82,17 @@ const ArtavixApp = {
             ? project.techStack.map(tech => `<span class="text-xs text-cyanAccent font-mono bg-bgDarker px-2 py-1 rounded border border-surfaceBorder">${this.escapeHTML(tech)}</span>`).join('')
             : '';
 
+        // Smart Action Button: If demoVideoUrl has a custom showcase page/link, navigate directly!
+        const actionButtonMarkup = project.demoVideoUrl && project.demoVideoUrl.trim() !== ''
+            ? `<a href="${this.escapeHTML(project.demoVideoUrl)}" class="btn btn-primary w-full text-sm mt-2 flex items-center justify-center gap-2">
+                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                 <span>Explore Dedicated System Showcase</span>
+               </a>`
+            : `<button onclick="ArtavixApp.openProjectModal('${project.id}')" class="btn btn-outline w-full text-sm mt-2 flex items-center justify-center gap-2 group-hover:border-cyanAccent">
+                 <i class="fa-solid fa-circle-info text-cyanAccent"></i>
+                 <span>System Specifications & Demo</span>
+               </button>`;
+
         return `
             <article class="glass-card p-6 sm:p-8 flex flex-col justify-between space-y-6 group relative overflow-hidden" data-id="${project.id}">
                 <!-- Top Status & Category -->
@@ -117,10 +128,7 @@ const ArtavixApp = {
                         ${techStackMarkup}
                     </div>
 
-                    <button onclick="ArtavixApp.openProjectModal('${project.id}')" class="btn btn-outline w-full text-sm mt-2 flex items-center justify-center gap-2 group-hover:border-cyanAccent">
-                        <i class="fa-solid fa-circle-info text-cyanAccent"></i>
-                        <span>System Specifications & Demo</span>
-                    </button>
+                    ${actionButtonMarkup}
                 </div>
             </article>
         `;
@@ -134,6 +142,14 @@ const ArtavixApp = {
         // Existing modal cleanup
         const existingModal = document.getElementById('project-detail-modal');
         if (existingModal) existingModal.remove();
+
+        const demoBtnMarkup = project.demoVideoUrl && project.demoVideoUrl.trim() !== ''
+            ? `<a href="${this.escapeHTML(project.demoVideoUrl)}" class="btn btn-primary text-xs flex items-center gap-1">
+                 <i class="fa-solid fa-rocket"></i> Launch Dedicated Page
+               </a>`
+            : `<a href="mailto:artavixai@gmail.com?subject=Demo Request: ${encodeURIComponent(project.title)}" class="btn btn-primary text-xs">
+                 Request Demo
+               </a>`;
 
         const modalHTML = `
             <div id="project-detail-modal" class="modal-backdrop active">
@@ -165,18 +181,16 @@ const ArtavixApp = {
                         </div>
                     </div>
 
-                    <!-- Video Demo Placeholder/Link -->
+                    <!-- Video Demo / Dedicated Page Link -->
                     <div class="p-4 rounded-lg bg-indigoPrimary/10 border border-indigoPrimary/30 flex items-center justify-between">
                         <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-video text-cyanAccent text-xl"></i>
+                            <i class="fa-solid fa-laptop-code text-cyanAccent text-xl"></i>
                             <div>
-                                <div class="text-sm font-bold text-white">Video Demonstration</div>
-                                <div class="text-xs text-gray-400">Recorded walkthrough of architecture</div>
+                                <div class="text-sm font-bold text-white">Full System Showcase</div>
+                                <div class="text-xs text-gray-400">Detailed architecture and interactive live specs</div>
                             </div>
                         </div>
-                        <a href="mailto:artavixai@gmail.com?subject=Demo Request: ${encodeURIComponent(project.title)}" class="btn btn-primary text-xs">
-                            Request Demo
-                        </a>
+                        ${demoBtnMarkup}
                     </div>
 
                     <!-- Action Footer -->
