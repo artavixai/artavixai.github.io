@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artavix | AI Product Studio & Rapid Engineering</title>
+    <meta name="description" content="Artavix transforms complex business ideas into production-ready software using advanced AI-assisted workflows. Enterprise DMS, Dashboards, and SaaS platforms.">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN for Utility Speed -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        indigoPrimary: '#4338CA',
+                        bluePrimary: '#2563EB',
+                        cyanAccent: '#06B6D4',
+                        bgDark: '#111827',
+                        bgDarker: '#0B0F19',
+                        surfaceDark: '#1F2937',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Design System CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-bgDark text-white antialiased selection:bg-cyanAccent selection:text-bgDark">
+
+    <!-- Background Ambient Glows -->
+    <div class="hero-glow"></div>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <a href="#" class="nav-brand">
+            <!-- Geometric Artavix Symbol in SVG -->
+            <svg class="h-8 w-auto" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 10L10 90H32L50 50L68 90H90L50 10Z" fill="url(#brand_grad_nav)"/>
+                <path d="M50 50L32 90H68L50 50Z" fill="#06B6D4" opacity="0.8"/>
+                <defs>
+                    <linearGradient id="brand_grad_nav" x1="10" y1="10" x2="90" y2="90" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#4338CA"/>
+                        <stop offset="0.5" stop-color="#2563EB"/>
+                        <stop offset="1" stop-color="#06B6D4"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+            <span class="tracking-tight">Artavix</span>
+        </a>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#projects" class="nav-link">Featured Work</a></li>
+                <li><a href="#workflow" class="nav-link">AI Workflow</a></li>
+                <li><a href="#stack" class="nav-link">Tech Stack</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+            </ul>
+        </nav>
+
+        <div class="flex items-center gap-4">
+            <a href="mailto:artavixai@gmail.com" class="btn btn-primary text-xs sm:text-sm">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span>Get in Touch</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="pt-28 px-4 sm:px-8 max-w-7xl mx-auto space-y-24">
+
+        <!-- Hero Section -->
+        <section class="text-center py-12 sm:py-20 space-y-8 relative z-10">
+            <!-- Availability Badge -->
+            <div class="inline-flex items-center">
+                <span class="badge">
+                    <span class="badge-pulse"></span>
+                    Available for Remote & Founding Engineer Roles
+                </span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-none max-w-5xl mx-auto">
+                Building <span class="text-gradient">Production-Ready AI Software</span> at Unmatched Speed
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                Artavix bridges the gap between vision and execution. I architect enterprise platforms, custom SaaS, and analytics dashboards using advanced AI-first workflows in weeks, not months.
+            </p>
+
+            <!-- Call to Action Buttons -->
+            <div class="flex flex-wrap justify-center items-center gap-4 pt-4">
+                <a href="#projects" class="btn btn-primary text-base px-8 py-3">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>Explore Products</span>
+                </a>
+                <a href="https://github.com/artavixai" target="_blank" rel="noopener" class="btn btn-outline text-base px-8 py-3">
+                    <i class="fa-brands fa-github"></i>
+                    <span>GitHub Studio</span>
+                </a>
+            </div>
+
+            <!-- Key Metrics Banner -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-12">
+                <div class="glass-card p-4 text-center">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-cyanAccent">100%</div>
+                    <div class="text-xs text-gray-400 mt-1">End-to-End Ownership</div>
+                </div>
+                <div class="glass-card p-4 text-center">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-bluePrimary">5x</div>
+                    <div class="text-xs text-gray-400 mt-1">Faster Development Velocity</div>
+                </div>
+                <div class="glass-card p-4 text-center">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-indigoPrimary">5+</div>
+                    <div class="text-xs text-gray-400 mt-1">Enterprise Systems Built</div>
+                </div>
+                <div class="glass-card p-4 text-center">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-cyanAccent">Zero</div>
+                    <div class="text-xs text-gray-400 mt-1">Architecture Debt</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Showcase Section -->
+        <section id="projects" class="space-y-10">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <span class="text-cyanAccent font-semibold text-sm tracking-widest uppercase">Portfolio</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold mt-1">Featured Systems & SaaS</h2>
+                </div>
+                <p class="text-gray-400 max-w-md text-sm">
+                    Complete, scalable applications designed from scratch using modern web stack and AI integration.
+                </p>
+            </div>
+
+            <!-- Dynamic Container for Projects (Loaded via JS) -->
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Fallback / Loading State -->
+                <div class="glass-card p-8 text-center col-span-full">
+                    <i class="fa-solid fa-spinner fa-spin text-3xl text-cyanAccent mb-4"></i>
+                    <p class="text-gray-400">Loading enterprise portfolio systems...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The AI Workflow Section -->
+        <section id="workflow" class="space-y-12">
+            <div class="text-center space-y-3">
+                <span class="text-cyanAccent font-semibold text-sm tracking-widest uppercase">Execution Model</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold">How Artavix Delivers 5x Faster</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="glass-card p-8 space-y-4 border-l-4 border-l-indigoPrimary relative">
+                    <div class="text-4xl font-black text-gray-700">01</div>
+                    <h3 class="text-xl font-bold text-white">System Architecture & Spec</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Rapidly translating business requirements into Clean Architecture specifications, database schemas, and API contracts.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="glass-card p-8 space-y-4 border-l-4 border-l-bluePrimary relative">
+                    <div class="text-4xl font-black text-gray-700">02</div>
+                    <h3 class="text-xl font-bold text-white">AI-Augmented Engineering</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Leveraging Cursor, Claude Code, and AI Agents to write clean, maintainable, and type-safe code with zero boilerplate fatigue.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="glass-card p-8 space-y-4 border-l-4 border-l-cyanAccent relative">
+                    <div class="text-4xl font-black text-gray-700">03</div>
+                    <h3 class="text-xl font-bold text-white">Production Deployment</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Containerizing with Docker, configuring CI/CD pipelines, and delivering production-ready applications ready for real users.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section id="stack" class="glass-card p-8 sm:p-12 space-y-8">
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-extrabold">Engineering Ecosystem</h2>
+                <p class="text-gray-400 text-sm">Battle-tested tools and AI infrastructure used at Artavix</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center items-center gap-3">
+                <span class="tag-pill text-sm py-2 px-4 flex items-center gap-2"><i class="fa-brands fa-python text-yellow-400"></i> Python</span>
+                <span class="tag-pill text-sm py-2 px-4 flex items-center gap-2"><i class="fa-brands fa-react text-cyan-400"></i> React / Next.js</span>
+                <span class="tag-pill text-sm py-2 px-4 flex items-center gap-2"><i class="fa-brands fa-node-js text-green-500"></i> Node.js</span>
+                <span class="tag-pill text-sm py-2 px-4 flex items-center gap-2"><i class="fa-solid fa-database text-blue-400"></i> PostgreSQL</span>
+                <span class="tag-pill text-sm py-2 px-4 flex items-center gap-2"><i class="fa-brands fa-docker text-blue-500"></i> Docker</span>
+                <span class="tag-pill text-sm py-2 px-4 flex items-center gap-2"><i class="fa-solid fa-brain text-purple-400"></i> Claude & GPT-4 APIs</span>
+                <span class="tag-pill text-sm py-2 px-4 flex items-center gap-2"><i class="fa-solid fa-bolt text-yellow-300"></i> Cursor AI</span>
+                <span class="tag-pill text-sm py-2 px-4 flex items-center gap-2"><i class="fa-solid fa-wind text-teal-300"></i> TailwindCSS</span>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span class="text-cyanAccent font-semibold text-sm tracking-widest uppercase">The Philosophy</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight">Software Engineering Evolved.</h2>
+                <p class="text-gray-400 leading-relaxed text-sm sm:text-base">
+                    Traditional software development is often slowed down by endless meetings and bikeshedding. At **Artavix**, I operate as an autonomous Product Builder. Give me a high-level problem, and I will deliver a complete, testable, and scalable solution.
+                </p>
+                <div class="pt-2">
+                    <a href="mailto:artavixai@gmail.com" class="btn btn-primary">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        <span>Hire Artavix for Your Product</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Graphic Card -->
+            <div class="glass-card p-8 border-indigoPrimary/30 relative overflow-hidden space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-brand-gradient flex items-center justify-center text-white font-bold text-xl">A</div>
+                    <div>
+                        <h4 class="font-bold text-white">Artavix Studio</h4>
+                        <p class="text-xs text-gray-400">AI Product Studio & Engineering</p>
+                    </div>
+                </div>
+                <div class="text-xs text-gray-300 font-mono bg-bgDarker p-4 rounded-lg border border-surfaceBorder space-y-2">
+                    <p class="text-green-400">$ artavix --status</p>
+                    <p>> AI Agents: Active</p>
+                    <p>> Architecture: Clean & Modular</p>
+                    <p>> Deployment: Automated</p>
+                    <p class="text-cyanAccent">> Ready for new challenges.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-24 border-t border-surfaceBorder bg-bgDarker py-12 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <span class="font-extrabold text-xl tracking-tight text-white">Artavix</span>
+                <span class="text-xs text-gray-500">| BUILD • INNOVATE • SCALE</span>
+            </div>
+
+            <p class="text-xs text-gray-500">
+                &copy; <span id="year"></span> Artavix. All rights reserved.
+            </p>
+
+            <div class="flex items-center gap-6 text-gray-400">
+                <a href="https://github.com/artavixai" target="_blank" rel="noopener" class="hover:text-cyanAccent transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
+                <a href="mailto:artavixai@gmail.com" class="hover:text-cyanAccent transition-colors"><i class="fa-solid fa-envelope text-lg"></i></a>
+                <a href="admin.html" target="_blank" class="text-xs hover:text-cyanAccent transition-colors opacity-50 hover:opacity-100"><i class="fa-solid fa-lock"></i> Admin Portal</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application JavaScript -->
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

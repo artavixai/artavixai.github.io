@@ -1,0 +1,62 @@
+[
+  {
+    "id": "enterprise-dms",
+    "title": "Enterprise Document Management System (DMS)",
+    "category": "Enterprise Software",
+    "shortDescription": "A robust document management system built with automated AI metadata tagging, full-text search, and granular security controls.",
+    "fullDescription": "Designed and shipped an end-to-end Enterprise DMS. Features include high-throughput document ingestion, automated OCR, LLM-powered categorization, role-based access control (RBAC), and immutable audit logs.",
+    "tags": ["AI Metadata", "OCR", "Document Search", "Enterprise Security"],
+    "techStack": ["Node.js", "React", "PostgreSQL", "Claude API", "Docker"],
+    "demoVideoUrl": "",
+    "featured": true,
+    "status": "Production-Ready"
+  },
+  {
+    "id": "project-management-platform",
+    "title": "Artavix PM: Enterprise Project & AI Resource Planning",
+    "category": "SaaS Platform",
+    "shortDescription": "Full-stack enterprise project management system featuring Groq AI project telemetry, WBS control, SignalR chat, and resource capacity planning.",
+    "fullDescription": "A comprehensive project tracking software enabling teams to manage WBS hierarchies, interactive Gantt timelines, capacity overflow alerts, and instant Groq LPU AI health score analytics.",
+    "tags": ["Groq AI Engine", "Interactive Gantt", "SignalR Chat", "Resource Capacity"],
+    "techStack": ["React 18", ".NET 9", "Groq AI", "SignalR", "SQLite"],
+    "demoVideoUrl": "pm-system.html",
+    "featured": true,
+    "status": "Production-Ready"
+  },
+  {
+    "id": "executive-analytics-dashboard",
+    "title": "Executive Business Analytics Dashboard",
+    "category": "Data & Analytics",
+    "shortDescription": "Real-time executive dashboard aggregating multi-channel business metrics, predictive revenue forecasting, and dynamic data visualization.",
+    "fullDescription": "Built a high-performance analytics platform that ingests live metrics from sales, operations, and user retention. Includes natural language querying for custom chart generation.",
+    "tags": ["Real-time Analytics", "Predictive AI", "Data Vis"],
+    "techStack": ["Next.js", "TypeScript", "Chart.js", "PostgreSQL"],
+    "demoVideoUrl": "",
+    "featured": true,
+    "status": "Production-Ready"
+  },
+  {
+    "id": "sports-club-management",
+    "title": "Smart Sports Club Management Platform",
+    "category": "Business Automation",
+    "shortDescription": "Complete operational software for sports facilities, handling automated member check-ins, subscription billing, and trainer scheduling.",
+    "fullDescription": "All-in-one management tool for fitness centers. Includes barcode/QR member access, automated recurring payment reminders, coach availability tracking, and executive financial reporting.",
+    "tags": ["Subscription Billing", "Member Portal", "QR Access"],
+    "techStack": ["React", "Node.js", "Express", "MongoDB"],
+    "demoVideoUrl": "",
+    "featured": true,
+    "status": "Production-Ready"
+  },
+  {
+    "id": "custom-internal-tools",
+    "title": "Custom Internal Automation Suite",
+    "category": "Internal Tools",
+    "shortDescription": "Rapidly developed internal tools for operational workflow automation, reducing manual data entry by 80%.",
+    "fullDescription": "Tailored business process automation applications built for speed and integration, replacing complex spreadsheets with unified, secure internal micro-web apps.",
+    "tags": ["Process Automation", "Internal Tools", "API Integration"],
+    "techStack": ["Python", "REST APIs", "TailwindCSS", "SQLite"],
+    "demoVideoUrl": "",
+    "featured": false,
+    "status": "Production-Ready"
+  }
+]

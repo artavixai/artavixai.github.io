@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artavix | Admin CMS Portal</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-bgDark text-white p-4 sm:p-8 min-h-screen">
+
+    <main class="max-w-5xl mx-auto space-y-8">
+        <!-- Admin Header -->
+        <header class="flex items-center justify-between border-b border-surfaceBorder pb-6">
+            <div>
+                <a href="index.html" class="text-xs text-cyanAccent hover:underline"><i class="fa-solid fa-arrow-left"></i> Back to Main Site</a>
+                <h1 class="text-3xl font-extrabold mt-1">Artavix Studio Admin CMS</h1>
+            </div>
+            <div id="token-status" class="text-xs font-mono"></div>
+        </header>
+
+        <!-- Token Authentication Box -->
+        <section class="glass-card p-6 space-y-4">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-shield-halved text-cyanAccent"></i>
+                <span>1. GitHub Access Authorization</span>
+            </h3>
+            <p class="text-xs text-gray-400">
+                Enter your GitHub Personal Access Token (PAT) with <code class="text-cyanAccent">repo</code> scope to allow live updates without a backend server.
+            </p>
+            <div class="flex gap-3">
+                <input type="password" id="pat-token-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" class="bg-bgDarker border border-surfaceBorder rounded px-4 py-2 text-sm text-white flex-grow focus:outline-none focus:border-cyanAccent">
+                <button onclick="ArtavixAdmin.saveToken()" class="btn btn-primary text-xs">Save Token</button>
+            </div>
+        </section>
+
+        <!-- Add New Project Form -->
+        <section class="glass-card p-6 space-y-6">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-folder-plus text-cyanAccent"></i>
+                <span>2. Publish New Product / System</span>
+            </h3>
+
+            <form id="add-project-form" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 mb-1">Project Unique ID</label>
+                        <input type="text" id="proj-id" placeholder="e.g. enterprise-crm" required class="w-full bg-bgDarker border border-surfaceBorder rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-cyanAccent">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 mb-1">Category</label>
+                        <input type="text" id="proj-category" placeholder="SaaS Platform / Internal Tool" required class="w-full bg-bgDarker border border-surfaceBorder rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-cyanAccent">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 mb-1">System Title</label>
+                    <input type="text" id="proj-title" placeholder="AI-Powered Customer Success Suite" required class="w-full bg-bgDarker border border-surfaceBorder rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-cyanAccent">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 mb-1">Short Summary (Card View)</label>
+                    <input type="text" id="proj-short-desc" placeholder="A 2-sentence overview of the application..." required class="w-full bg-bgDarker border border-surfaceBorder rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-cyanAccent">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 mb-1">Full System Architecture & Specs</label>
+                    <textarea id="proj-full-desc" rows="4" placeholder="Detailed breakdown of features, architecture, and deployment..." required class="w-full bg-bgDarker border border-surfaceBorder rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-cyanAccent"></textarea>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 mb-1">Feature Tags (Comma Separated)</label>
+                        <input type="text" id="proj-tags" placeholder="OCR, Real-time, LLM" class="w-full bg-bgDarker border border-surfaceBorder rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-cyanAccent">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 mb-1">Tech Stack (Comma Separated)</label>
+                        <input type="text" id="proj-stack" placeholder="React, Python, Claude API" class="w-full bg-bgDarker border border-surfaceBorder rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-cyanAccent">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 mb-1">Video Demo URL (Optional)</label>
+                    <input type="url" id="proj-video" placeholder="https://loom.com/share/xxxx" class="w-full bg-bgDarker border border-surfaceBorder rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-cyanAccent">
+                </div>
+
+                <button type="submit" id="submit-btn" class="btn btn-primary w-full text-sm py-3">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <span>Publish System to Live Site</span>
+                </button>
+            </form>
+        </section>
+
+        <!-- Current Live Projects List -->
+        <section class="space-y-4">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-list-check text-cyanAccent"></i>
+                <span>3. Existing Published Systems</span>
+            </h3>
+            <div id="admin-projects-list" class="space-y-3">
+                <!-- Managed via admin.js -->
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/js/github-api.js"></script>
+    <script src="assets/js/admin.js"></script>
+</body>
+</html>

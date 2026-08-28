@@ -1,0 +1,23 @@
+{
+  "site": {
+    "brandName": "Artavix",
+    "tagline": "BUILD • INNOVATE • SCALE",
+    "heroTitle": "Architecting Enterprise AI Software at Unmatched Speed",
+    "heroSubtitle": "We build production-ready platforms, custom SaaS, and internal business tools using advanced AI-assisted workflows.",
+    "contactEmail": "artavixai@gmail.com",
+    "githubUrl": "https://github.com/artavixai",
+    "linkedinUrl": "https://linkedin.com",
+    "location": "Remote Worldwide (GMT+3:30)"
+  },
+  "theme": {
+    "colors": {
+      "primaryIndigo": "#4338CA",
+      "primaryBlue": "#2563EB",
+      "accentCyan": "#06B6D4",
+      "backgroundDark": "#111827",
+      "surfaceDark": "#1F2937",
+      "textWhite": "#FFFFFF",
+      "textMuted": "#9CA3AF"
+    }
+  }
+}

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artavix PM | Enterprise Project & AI Resource Planning System</title>
+    <meta name="description" content="Artavix PM is a production-ready enterprise project management, WBS control, real-time SignalR chat, and Groq LPU AI resource planning platform.">
+    
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        indigoPrimary: '#4338CA',
+                        bluePrimary: '#2563EB',
+                        cyanAccent: '#06B6D4',
+                        bgDark: '#111827',
+                        bgDarker: '#0B0F19',
+                        surfaceDark: '#1F2937',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Design System CSS (Project Style Architecture) -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-bgDark text-white antialiased selection:bg-cyanAccent selection:text-bgDark font-['Plus_Jakarta_Sans']">
+
+    <!-- Background Ambient Glow Effects -->
+    <div class="hero-glow"></div>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <a href="index.html" class="nav-brand">
+            <!-- Geometric Artavix Symbol SVG -->
+            <svg class="h-8 w-auto" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 10L10 90H32L50 50L68 90H90L50 10Z" fill="url(#brand_grad_pm_page)"/>
+                <path d="M50 50L32 90H68L50 50Z" fill="#06B6D4" opacity="0.8"/>
+                <defs>
+                    <linearGradient id="brand_grad_pm_page" x1="10" y1="10" x2="90" y2="90" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#4338CA"/>
+                        <stop offset="0.5" stop-color="#2563EB"/>
+                        <stop offset="1" stop-color="#06B6D4"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+            <span class="tracking-tight">Artavix <span class="text-cyanAccent font-normal text-sm">PM</span></span>
+        </a>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html#projects" class="nav-link"><i class="fa-solid fa-arrow-left text-xs mr-1"></i> Main Studio</a></li>
+                <li><a href="#groq-ai" class="nav-link">Groq AI Engine</a></li>
+                <li><a href="#gantt-wbs" class="nav-link">WBS & Gantt</a></li>
+                <li><a href="#signalr-chat" class="nav-link">SignalR Hub</a></li>
+                <li><a href="#capacity" class="nav-link">Capacity Control</a></li>
+                <li><a href="#tech-specs" class="nav-link">Architecture</a></li>
+            </ul>
+        </nav>
+
+        <div class="flex items-center gap-4">
+            <a href="https://artavix-pm.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary text-xs sm:text-sm">
+                <i class="fa-solid fa-rocket"></i>
+                <span>Launch Live Demo</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="pt-28 px-4 sm:px-8 max-w-7xl mx-auto space-y-24">
+
+        <!-- Hero Section -->
+        <section class="text-center py-8 sm:py-12 space-y-8 relative z-10">
+            <!-- Badge -->
+            <div class="inline-flex items-center">
+                <span class="badge">
+                    <span class="badge-pulse"></span>
+                    Enterprise Software Architecture • .NET 9 & React 18
+                </span>
+            </div>
+
+            <!-- Main Headline -->
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-tight max-w-5xl mx-auto">
+                Artavix PM: <span class="text-gradient">Enterprise Project & AI Resource Planning</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                A high-performance full-stack system engineered for WBS hierarchical control, real-time SignalR communications, specialist capacity overflow prevention, and Groq LPU AI-driven project telemetry analysis.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-wrap justify-center items-center gap-4 pt-4">
+                <a href="https://artavix-pm.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary text-base px-8 py-3">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <span>Launch Live Application (Vercel)</span>
+                </a>
+                <a href="mailto:artavixai@gmail.com?subject=Inquiry: Artavix PM Architecture" class="btn btn-outline text-base px-8 py-3">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>Request Architectural Audit</span>
+                </a>
+            </div>
+
+            <!-- Main Hero Showcase Image Card -->
+            <div class="glass-card p-3 rounded-2xl border-cyanAccent/30 overflow-hidden shadow-2xl mt-8 transition-transform duration-500 hover:scale-[1.01]">
+                <img src="assets/images/pm-hero.jpg" alt="Artavix PM Executive Intelligence Dashboard" class="w-full h-auto rounded-xl object-cover">
+            </div>
+
+            <!-- Live Performance Metrics -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto pt-8">
+                <div class="glass-card p-5 text-center">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-cyanAccent">&lt; 500ms</div>
+                    <div class="text-xs text-gray-400 mt-1">Groq LPU AI Telemetry Speed</div>
+                </div>
+                <div class="glass-card p-5 text-center">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-bluePrimary">SignalR</div>
+                    <div class="text-xs text-gray-400 mt-1">Real-Time WebSockets Engine</div>
+                </div>
+                <div class="glass-card p-5 text-center">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-indigoPrimary">Unlimited</div>
+                    <div class="text-xs text-gray-400 mt-1">WBS Hierarchical Tree Depth</div>
+                </div>
+                <div class="glass-card p-5 text-center">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-cyanAccent">.NET 9</div>
+                    <div class="text-xs text-gray-400 mt-1">ASP.NET Core Web API Core</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 1: Groq AI Telemetry & Risk Analysis -->
+        <section id="groq-ai" class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <div class="inline-flex items-center gap-2 text-cyanAccent font-bold text-xs uppercase tracking-widest bg-cyanAccent/10 px-3 py-1 rounded-full border border-cyanAccent/20">
+                    <i class="fa-solid fa-brain"></i> Groq LPU Integration
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight">
+                    Groq AI-Powered Project Telemetry & Health Score Index
+                </h2>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Operating as an embedded Senior PM AI Consultant, the system aggregates full project telemetry—including weighted progress, Gantt task completion, CRM specialist logs, and timeline variances—sending structured payloads to Groq LPU processors for sub-second analysis.
+                </p>
+
+                <div class="space-y-4 pt-2">
+                    <div class="bg-bgDarker p-4 rounded-xl border border-surfaceBorder flex items-start gap-4">
+                        <div class="p-3 rounded-lg bg-indigoPrimary/20 text-cyanAccent font-bold text-xl"><i class="fa-solid fa-chart-pie"></i></div>
+                        <div>
+                            <h4 class="font-bold text-white text-base">Health Score Index (%) & Risk Tiers</h4>
+                            <p class="text-xs text-gray-400 mt-1">Dynamic percentage gauge with risk categorization into Low, Medium, High, or Critical tiers based on mathematical schedule variance.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-bgDarker p-4 rounded-xl border border-surfaceBorder flex items-start gap-4">
+                        <div class="p-3 rounded-lg bg-bluePrimary/20 text-bluePrimary font-bold text-xl"><i class="fa-solid fa-route"></i></div>
+                        <div>
+                            <h4 class="font-bold text-white text-base">Actionable Bottleneck Roadmap</h4>
+                            <p class="text-xs text-gray-400 mt-1">Generates prioritized mitigation roadmaps, identifying exact specialist over-allocations and unassigned deliverables.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Frame -->
+            <div class="glass-card p-3 rounded-2xl border-indigoPrimary/30 overflow-hidden shadow-2xl">
+                <img src="assets/images/pm-ai-analysis.jpg" alt="Groq AI Analysis Modal" class="w-full h-auto rounded-xl object-cover">
+            </div>
+        </section>
+
+        <!-- Feature 2: Hierarchical WBS & Interactive Gantt Timeline -->
+        <section id="gantt-wbs" class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Image Frame -->
+            <div class="glass-card p-3 rounded-2xl border-indigoPrimary/30 overflow-hidden shadow-2xl order-2 lg:order-1">
+                <img src="assets/images/pm-gantt.jpg" alt="Interactive Gantt Chart and WBS" class="w-full h-auto rounded-xl object-cover">
+            </div>
+
+            <div class="space-y-6 order-1 lg:order-2">
+                <div class="inline-flex items-center gap-2 text-cyanAccent font-bold text-xs uppercase tracking-widest bg-cyanAccent/10 px-3 py-1 rounded-full border border-cyanAccent/20">
+                    <i class="fa-solid fa-chart-gantt"></i> Interactive WBS
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight">
+                    Hierarchical WBS & Drag-and-Drop Gantt Timeline
+                </h2>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Designed for complex multi-level enterprise projects. Features seamless drag-and-drop timeline resizing, automatic progress handles, and weighted progress aggregation where parent project completion is dynamically calculated from sub-projects.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <div class="bg-bgDarker p-4 rounded-xl border border-surfaceBorder space-y-1">
+                        <div class="text-cyanAccent font-bold text-sm"><i class="fa-solid fa-sitemap mr-1"></i> Parent & Sub-Projects</div>
+                        <div class="text-xs text-gray-400">Unlimited tree depth with weighted progress calculation.</div>
+                    </div>
+                    <div class="bg-bgDarker p-4 rounded-xl border border-surfaceBorder space-y-1">
+                        <div class="text-bluePrimary font-bold text-sm"><i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Process Templates</div>
+                        <div class="text-xs text-gray-400">Instant generation of pre-configured subsystem task workflows.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 3: Real-Time SignalR Collaboration Hub -->
+        <section id="signalr-chat" class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <div class="inline-flex items-center gap-2 text-cyanAccent font-bold text-xs uppercase tracking-widest bg-cyanAccent/10 px-3 py-1 rounded-full border border-cyanAccent/20">
+                    <i class="fa-solid fa-comments"></i> Real-Time WebSockets
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight">
+                    SignalR-Powered Team Collaboration & Chat Hub
+                </h2>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Eliminating status meetings through real-time communication. Features automated project channel creation, direct messaging, live online presence tracking, media preview players, and browser location tagging.
+                </p>
+
+                <div class="space-y-3 text-sm text-gray-300">
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-circle-check text-cyanAccent mt-1"></i>
+                        <span><strong>Presence Tracker:</strong> Real-time online/offline pulse badges for team members via ASP.NET Core SignalR ChatHub.</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-circle-check text-cyanAccent mt-1"></i>
+                        <span><strong>Rich Messaging:</strong> Threaded replies, text editing, emoji reactions, double-tick read receipts, and file preview cards.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Frame -->
+            <div class="glass-card p-3 rounded-2xl border-indigoPrimary/30 overflow-hidden shadow-2xl">
+                <img src="assets/images/pm-chat.jpg" alt="SignalR Real-Time Chat Hub" class="w-full h-auto rounded-xl object-cover">
+            </div>
+        </section>
+
+        <!-- Feature 4: Resource Capacity Engine & Live Monitoring -->
+        <section id="capacity" class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Image Frame -->
+            <div class="glass-card p-3 rounded-2xl border-indigoPrimary/30 overflow-hidden shadow-2xl order-2 lg:order-1">
+                <img src="assets/images/pm-analytics.jpg" alt="Capacity Planning and Analytics" class="w-full h-auto rounded-xl object-cover">
+            </div>
+
+            <div class="space-y-6 order-1 lg:order-2">
+                <div class="inline-flex items-center gap-2 text-cyanAccent font-bold text-xs uppercase tracking-widest bg-cyanAccent/10 px-3 py-1 rounded-full border border-cyanAccent/20">
+                    <i class="fa-solid fa-gauge-high"></i> Resource Capacity Engine
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight">
+                    Capacity Overflow Prevention & Live Crisis Monitoring
+                </h2>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Engineered to prevent burnout and project delays. Monitors daily (9h cap) and monthly (198h cap) specialist workloads, triggering automated red warning flags when capacity thresholds are breached.
+                </p>
+
+                <div class="bg-bgDarker p-4 rounded-xl border border-surfaceBorder flex items-center gap-4">
+                    <i class="fa-solid fa-bell-exclamation text-3xl text-red-400"></i>
+                    <div>
+                        <div class="font-bold text-white text-base">Triple Alert System</div>
+                        <div class="text-xs text-gray-400 mt-0.5">Automated audio alarms (/alarm.mp3), interactive toast notifications, and desktop browser alerts for critical schedule deviations.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Full Technical Architecture Grid -->
+        <section id="tech-specs" class="glass-card p-8 sm:p-12 space-y-8">
+            <div class="text-center space-y-2">
+                <span class="text-cyanAccent font-semibold text-sm tracking-widest uppercase">System Specifications</span>
+                <h2 class="text-3xl font-extrabold">Complete Architectural Breakdown</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 pt-4">
+                <!-- Frontend -->
+                <div class="bg-bgDarker p-6 rounded-xl border border-surfaceBorder space-y-3">
+                    <div class="text-cyanAccent text-xl font-bold flex items-center gap-2">
+                        <i class="fa-brands fa-react"></i> Frontend
+                    </div>
+                    <ul class="text-xs text-gray-400 space-y-1.5 leading-relaxed">
+                        <li>• React 18.3 + Vite 6 (SPA)</li>
+                        <li>• TailwindCSS 3.4 (Flat System)</li>
+                        <li>• Framer Motion 11 Animations</li>
+                        <li>• Recharts 3.7 Gauge & Donut Charts</li>
+                        <li>• @microsoft/signalr 8.0 Client</li>
+                    </ul>
+                </div>
+
+                <!-- Backend -->
+                <div class="bg-bgDarker p-6 rounded-xl border border-surfaceBorder space-y-3">
+                    <div class="text-bluePrimary text-xl font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-server"></i> Backend
+                    </div>
+                    <ul class="text-xs text-gray-400 space-y-1.5 leading-relaxed">
+                        <li>• ASP.NET Core 9 Web API (.NET 9)</li>
+                        <li>• C# 13 Object-Oriented Architecture</li>
+                        <li>• SignalR ChatHub WebSockets</li>
+                        <li>• JWT Bearer & BCrypt Security</li>
+                        <li>• Reminder Hosted Background Service</li>
+                    </ul>
+                </div>
+
+                <!-- AI & CRM Integration -->
+                <div class="bg-bgDarker p-6 rounded-xl border border-surfaceBorder space-y-3">
+                    <div class="text-purple-400 text-xl font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-brain"></i> AI & CRM Core
+                    </div>
+                    <ul class="text-xs text-gray-400 space-y-1.5 leading-relaxed">
+                        <li>• Groq LPU Engine (Llama 3.3 AI)</li>
+                        <li>• PuppeteerSharp 20.0 CRM Scraper</li>
+                        <li>• ExcelDataReader 3.7 Parser</li>
+                        <li>• Hashtag Workflow Rule Engine</li>
+                        <li>• Sub-second JSON Telemetry Payload</li>
+                    </ul>
+                </div>
+
+                <!-- Database & Storage -->
+                <div class="bg-bgDarker p-6 rounded-xl border border-surfaceBorder space-y-3">
+                    <div class="text-green-400 text-xl font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-database"></i> Persistence
+                    </div>
+                    <ul class="text-xs text-gray-400 space-y-1.5 leading-relaxed">
+                        <li>• SQLite (artavix.db) WAL Mode</li>
+                        <li>• Entity Framework Core 9.0</li>
+                        <li>• Auto DataMigrator Engine</li>
+                        <li>• Multi-Stage Docker Container</li>
+                        <li>• Production-Ready Infrastructure</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Call to Action Banner -->
+        <section class="glass-card p-8 sm:p-12 text-center space-y-6 border-indigoPrimary/40 relative overflow-hidden">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+                Experience Artavix PM Live in Production
+            </h2>
+            <p class="text-gray-400 text-sm max-w-2xl mx-auto">
+                Explore the fully functional web application on Vercel or contact Artavix Studio for custom enterprise software development.
+            </p>
+            <div class="flex flex-wrap justify-center items-center gap-4 pt-2">
+                <a href="https://artavix-pm.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary text-base px-8 py-3">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span>Launch Live Demo (Vercel)</span>
+                </a>
+                <a href="mailto:artavixai@gmail.com" class="btn btn-outline text-base px-8 py-3">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>Contact Studio</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-24 border-t border-surfaceBorder bg-bgDarker py-12 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <a href="index.html" class="font-extrabold text-xl tracking-tight text-white hover:text-cyanAccent transition-colors">Artavix</a>
+                <span class="text-xs text-gray-500">| BUILD • INNOVATE • SCALE</span>
+            </div>
+
+            <p class="text-xs text-gray-500">
+                &copy; Artavix Studio. All rights reserved.
+            </p>
+
+            <div class="flex items-center gap-6 text-gray-400">
+                <a href="https://github.com/artavixai" target="_blank" rel="noopener" class="hover:text-cyanAccent transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
+                <a href="mailto:artavixai@gmail.com" class="hover:text-cyanAccent transition-colors"><i class="fa-solid fa-envelope text-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
