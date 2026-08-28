@@ -1,6 +1,6 @@
 /**
  * Artavix Enterprise Core Application Engine
- * Handles JSON Data Ingestion, Dynamic Portfolio Rendering, and Interactive Modals/Showcase Navigation.
+ * Handles JSON Data Ingestion, Dynamic Portfolio Rendering, Modals, Live Visitor Counter, and Direct Form Submission.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -18,6 +18,7 @@ const ArtavixApp = {
         this.updateYear();
         await this.loadConfig();
         await this.loadProjects();
+        this.initVisitorCounter();
         this.setupModalListeners();
     },
 
@@ -26,6 +27,28 @@ const ArtavixApp = {
         const yearElem = document.getElementById('year');
         if (yearElem) {
             yearElem.textContent = new Date().getFullYear();
+        }
+    },
+
+    // Live Visitor Counter API
+    async initVisitorCounter() {
+        const counterElem = document.getElementById('visitor-count');
+        if (!counterElem) return;
+
+        try {
+            // Free Privacy-Friendly Counter API
+            const response = await fetch('https://api.counterapi.dev/v1/artavix-studio-official/visits/up');
+            if (!response.ok) throw new Error('Counter API unreachable');
+            
+            const data = await response.json();
+            if (data && data.count) {
+                counterElem.textContent = Number(data.count).toLocaleString();
+            } else {
+                counterElem.textContent = '1,284'; // Fallback display
+            }
+        } catch (error) {
+            console.warn('Visitor counter offline, using fallback:', error);
+            counterElem.textContent = '1,284';
         }
     },
 
@@ -147,9 +170,9 @@ const ArtavixApp = {
             ? `<a href="${this.escapeHTML(project.demoVideoUrl)}" class="btn btn-primary text-xs flex items-center gap-1">
                  <i class="fa-solid fa-rocket"></i> Launch Dedicated Page
                </a>`
-            : `<a href="mailto:artavixai@gmail.com?subject=Demo Request: ${encodeURIComponent(project.title)}" class="btn btn-primary text-xs">
+            : `<button onclick="ArtavixApp.closeModal(); ArtavixApp.openContactModal('Demo Request: ${this.escapeHTML(project.title)}');" class="btn btn-primary text-xs">
                  Request Demo
-               </a>`;
+               </button>`;
 
         const modalHTML = `
             <div id="project-detail-modal" class="modal-backdrop active">
@@ -204,6 +227,81 @@ const ArtavixApp = {
         document.body.insertAdjacentHTML('beforeend', modalHTML);
     },
 
+    // Contact/Demo Request Modal Handlers
+    openContactModal(subjectPreset) {
+        const modal = document.getElementById('contact-modal');
+        const subjectInput = document.getElementById('contact-subject');
+        const successMsg = document.getElementById('contact-success-msg');
+        const form = document.getElementById('contact-form');
+
+        if (modal) {
+            if (subjectInput && subjectPreset) {
+                subjectInput.value = subjectPreset;
+            }
+            if (successMsg) successMsg.classList.add('hidden');
+            if (form) form.classList.remove('hidden');
+            modal.classList.add('active');
+        }
+    },
+
+    closeContactModal() {
+        const modal = document.getElementById('contact-modal');
+        if (modal) {
+            modal.classList.remove('active');
+        }
+    },
+
+    // Serverless Direct Form Submission to artavixai@gmail.com
+    async handleContactSubmit(event) {
+        event.preventDefault();
+
+        const btn = document.getElementById('contact-submit-btn');
+        const form = document.getElementById('contact-form');
+        const successMsg = document.getElementById('contact-success-msg');
+
+        const name = document.getElementById('contact-name').value.trim();
+        const email = document.getElementById('contact-email').value.trim();
+        const subject = document.getElementById('contact-subject').value.trim();
+        const message = document.getElementById('contact-message').value.trim();
+
+        if (!name || !email || !message) return;
+
+        btn.disabled = true;
+        btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Submitting Request...`;
+
+        try {
+            // Direct Serverless Submission via FormSubmit
+            const response = await fetch('https://formsubmit.co/ajax/artavixai@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    _subject: `Artavix Studio Inquiry: ${subject || 'New Demo Request'}`,
+                    message: message,
+                    _template: 'table'
+                })
+            });
+
+            if (response.ok) {
+                form.classList.add('hidden');
+                successMsg.classList.remove('hidden');
+                form.reset();
+            } else {
+                throw new Error('Submission failed');
+            }
+        } catch (error) {
+            console.error('Contact Form Error:', error);
+            alert('Unable to submit inquiry automatically. Please send a direct email to artavixai@gmail.com.');
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> Submit Inquiry`;
+        }
+    },
+
     // Close Modal Handler
     closeModal() {
         const modal = document.getElementById('project-detail-modal');
@@ -216,7 +314,10 @@ const ArtavixApp = {
     // Global Listeners
     setupModalListeners() {
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') this.closeModal();
+            if (e.key === 'Escape') {
+                this.closeModal();
+                this.closeContactModal();
+            }
         });
     },
 

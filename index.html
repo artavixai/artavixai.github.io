@@ -69,10 +69,10 @@
         </nav>
 
         <div class="flex items-center gap-4">
-            <a href="mailto:artavixai@gmail.com" class="btn btn-primary text-xs sm:text-sm">
+            <button onclick="ArtavixApp.openContactModal('General Inquiry')" class="btn btn-primary text-xs sm:text-sm">
                 <i class="fa-solid fa-paper-plane"></i>
                 <span>Get in Touch</span>
-            </a>
+            </button>
         </div>
     </header>
 
@@ -219,10 +219,10 @@
                     Traditional software development is often slowed down by endless meetings and bikeshedding. At **Artavix**, I operate as an autonomous Product Builder. Give me a high-level problem, and I will deliver a complete, testable, and scalable solution.
                 </p>
                 <div class="pt-2">
-                    <a href="mailto:artavixai@gmail.com" class="btn btn-primary">
+                    <button onclick="ArtavixApp.openContactModal('Hire Artavix Studio')" class="btn btn-primary">
                         <i class="fa-solid fa-calendar-check"></i>
                         <span>Hire Artavix for Your Product</span>
-                    </a>
+                    </button>
                 </div>
             </div>
 
@@ -247,6 +247,53 @@
 
     </main>
 
+    <!-- Interactive Contact/Demo Request Modal -->
+    <div id="contact-modal" class="modal-backdrop">
+        <div class="modal-content relative space-y-6 max-w-lg">
+            <button onclick="ArtavixApp.closeContactModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl p-2">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="space-y-2">
+                <span class="text-xs text-cyanAccent uppercase tracking-widest font-bold">Artavix Studio Inquiries</span>
+                <h3 class="text-2xl font-extrabold text-white">Request Demo & Project Inquiry</h3>
+                <p class="text-xs text-gray-400">Fill out the details below to submit your request directly to Artavix Studio.</p>
+            </div>
+
+            <form id="contact-form" onsubmit="ArtavixApp.handleContactSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-gray-300 mb-1">Your Full Name *</label>
+                    <input type="text" id="contact-name" required placeholder="e.g. Sarah Jenkins" class="w-full bg-bgDarker border border-surfaceBorder rounded px-3 py-2.5 text-sm text-white focus:outline-none focus:border-cyanAccent">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-300 mb-1">Your Business Email *</label>
+                    <input type="email" id="contact-email" required placeholder="s.jenkins@company.com" class="w-full bg-bgDarker border border-surfaceBorder rounded px-3 py-2.5 text-sm text-white focus:outline-none focus:border-cyanAccent">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-300 mb-1">Product of Interest / Requirement</label>
+                    <input type="text" id="contact-subject" placeholder="e.g. Artavix PM Demo / Custom AI SaaS" class="w-full bg-bgDarker border border-surfaceBorder rounded px-3 py-2.5 text-sm text-white focus:outline-none focus:border-cyanAccent">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-300 mb-1">Message / Project Brief *</label>
+                    <textarea id="contact-message" rows="3" required placeholder="Tell us briefly about your product or timeline..." class="w-full bg-bgDarker border border-surfaceBorder rounded px-3 py-2.5 text-sm text-white focus:outline-none focus:border-cyanAccent"></textarea>
+                </div>
+
+                <button type="submit" id="contact-submit-btn" class="btn btn-primary w-full text-sm py-3">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>Submit Inquiry</span>
+                </button>
+            </form>
+
+            <div id="contact-success-msg" class="hidden text-center p-4 bg-cyanAccent/10 border border-cyanAccent/30 rounded-lg text-cyanAccent text-sm">
+                <i class="fa-solid fa-circle-check text-2xl mb-2 block"></i>
+                <span>Thank you! Your request has been sent successfully. Artavix Studio will respond within 24 hours.</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="mt-24 border-t border-surfaceBorder bg-bgDarker py-12 px-4 sm:px-8">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
@@ -255,13 +302,20 @@
                 <span class="text-xs text-gray-500">| BUILD • INNOVATE • SCALE</span>
             </div>
 
+            <!-- Visitor Counter Badge -->
+            <div class="inline-flex items-center gap-2 bg-surfaceDark px-4 py-1.5 rounded-full border border-surfaceBorder text-xs text-gray-300 shadow-inner">
+                <i class="fa-solid fa-eye text-cyanAccent"></i>
+                <span>Total Live Views:</span>
+                <span id="visitor-count" class="font-mono font-bold text-cyanAccent">Loading...</span>
+            </div>
+
             <p class="text-xs text-gray-500">
                 &copy; <span id="year"></span> Artavix. All rights reserved.
             </p>
 
             <div class="flex items-center gap-6 text-gray-400">
                 <a href="https://github.com/artavixai" target="_blank" rel="noopener" class="hover:text-cyanAccent transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
-                <a href="mailto:artavixai@gmail.com" class="hover:text-cyanAccent transition-colors"><i class="fa-solid fa-envelope text-lg"></i></a>
+                <button onclick="ArtavixApp.openContactModal('Footer Inquiry')" class="hover:text-cyanAccent transition-colors"><i class="fa-solid fa-envelope text-lg"></i></button>
                 <a href="admin.html" target="_blank" class="text-xs hover:text-cyanAccent transition-colors opacity-50 hover:opacity-100"><i class="fa-solid fa-lock"></i> Admin Portal</a>
             </div>
         </div>
